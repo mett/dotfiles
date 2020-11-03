@@ -17,6 +17,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'flazz/vim-colorschemes'
+Plug 'posva/vim-vue'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tell-k/vim-autopep8'
+Plug 'kergoth/vim-bitbake'
+Plug 'cespare/vim-toml'
+Plug 'vimlab/split-term.vim'
 
 call plug#end()

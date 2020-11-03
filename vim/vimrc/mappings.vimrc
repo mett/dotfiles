@@ -22,8 +22,8 @@ noremap <silent> <leader>p :lprev<CR>
 noremap <silent> <leader>l :ll<CR>
 
 "" Quick bind for edit vimrc
-nnoremap <leader>ev :vsplit ~/.vimrc<cr>
-nnoremap <leader>r :source ~/.vimrc<cr>
+nnoremap <leader>ev :vsplit ~/.vim/.vimrc<cr>
+nnoremap <leader>r :source $MYVIMRC<cr>
 
 "" Quick close preview window
 noremap <silent> <leader>c :pc<CR>
