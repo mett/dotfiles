@@ -15,3 +15,4 @@ source $HOME/.vim/vimrc/syntastic.vimrc     " Syntastic settings
 source $HOME/.vim/vimrc/markdown.vimrc      " Markdown language settings
 source $HOME/.vim/vimrc/deoplete.vimrc      " deoplete settings.
 source $HOME/.vim/vimrc/python_syntax.vimrc " python syntax settings.
+source $HOME/.vim/vimrc/pydoc.vimrc         " pydoc settings.

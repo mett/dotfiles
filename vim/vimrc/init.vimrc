@@ -23,5 +23,6 @@ Plug 'tell-k/vim-autopep8'
 Plug 'kergoth/vim-bitbake'
 Plug 'cespare/vim-toml'
 Plug 'vimlab/split-term.vim'
+Plug 'fs111/pydoc.vim'
 
 call plug#end()

@@ -12,6 +12,7 @@ set hlsearch
 set incsearch
 set autoindent
 set scrolloff=10
+set ignorecase
 
 "" Wildcard completion and menus
 set wildmode=longest:full,full
