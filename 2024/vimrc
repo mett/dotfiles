@@ -1,0 +1,132 @@
+" Auto-source the vimrc when saved.
+autocmd! bufwritepost .vimrc source %
+
+" Initialize Plug.
+call plug#begin('~/.vim/vimfiles')
+    Plug 'preservim/nerdtree'
+
+    Plug 'voldikss/vim-floaterm'
+
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'NLKNguyen/papercolor-theme'
+
+    Plug 'dense-analysis/ale'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+
+    Plug 'tmhedberg/SimpylFold'
+    Plug 'Vimjas/vim-python-pep8-indent'
+    Plug 'vim-python/python-syntax'
+
+    Plug 'ycm-core/YouCompleteMe'
+
+    Plug 'wookayin/semshi', { 'do': ':UpdateRemotePlugins', 'tag': '*' }
+
+    Plug 'Quramy/vison'
+
+    Plug 'vimwiki/vimwiki'
+
+    Plug 'junegunn/goyo.vim'
+call plug#end()
+
+" Enable syntax highlighting and indentation support.
+filetype plugin indent on
+syntax on
+set nocompatible
+
+
+" General settings
+set number relativenumber
+set tabstop=8
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set belloff=all
+set backspace=indent,eol,start
+set splitright
+set hlsearch
+set incsearch
+set autoindent
+set scrolloff=10
+set ignorecase
+set wildmode=longest:full,full
+set wildmenu
+set signcolumn=yes
+
+" Color scheme
+set background=dark
+colorscheme PaperColor
+
+" Nerdtree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\~$', '\.swp$', '\.pyc$', '\.asv$']
+
+" Python related settings
+au FileType python setlocal colorcolumn=120
+au FileType python setlocal textwidth=120
+au FileType python setlocal foldmethod=indent
+au FileType python let b:ale_fixers = [ 'ruff' ]
+au FileType python let b:ale_linters = [ 'ruff', 'black' ]
+
+
+" Markdown settings
+au FileType markdown setlocal spl+=sv
+au FileType markdown setlocal spell
+
+
+" Map leaders
+let mapleader = ","
+
+" Fold Options
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+" Quick escape
+imap jk <ESC>
+
+" Bind Ctrl-S to save
+noremap <silent> <C-s> :update<CR>
+inoremap <silent> <C-s> <C-c>:update<CR>
+vnoremap <silent> <C-s> <C-o>:update<CR>
+
+" Delete Trailing White spaces
+noremap <silent> <leader>ds :%s/\s\+$//e<CR>:nohlsearch<CR>``
+
+" Moving around using the location list
+noremap <silent> <leader>n :lnext<CR>
+noremap <silent> <leader>p :lprev<CR>
+noremap <silent> <leader>l :ll<CR>
+
+" Quick bind for edit vimrc
+nnoremap <leader>ev :vsplit ~/.vim/.vimrc<cr>
+nnoremap <leader>r :source $MYVIMRC<cr>
+
+" Quick close preview window
+noremap <silent> <leader>c :pc<CR>
+
+" Change background color
+noremap <silent> <leader>s :set background=light<CR>
+noremap <silent> <leader>d :set background=dark<CR>
+
+" FloatTerm
+nnoremap <silent> <leader>t :FloatermToggle<CR>
+tnoremap <silent> <leader>t <C-\><C-n>:FloatermToggle<CR>
+
+" Airline
+let g:airline_theme='papercolor'
+let g:airline#extensions#ale#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" ALE
+let g:ale_fix_on_save = 1
+
+" VimWiki
+nmap <silent> <leader>vs :50vsp \| :VimwikiIndex<CR>
+
+" Goyo
+let g:goyo_width=120
+let g:goyo_linenr=1
